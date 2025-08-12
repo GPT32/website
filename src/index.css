@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+  themes:
+    retro --default,
+    synthwave --prefersdark;
+}
+
+/** global styles */
+html,
+body {
+  @apply h-full w-screen;
+}
+
+html {
+  @apply bg-base-100 cursor-default motion-safe:scroll-smooth;
+  font-family: "JetBrains Mono Variable", Courier, monospace;
+}
+
+body {
+  @apply p-5;
+}
+
+h1,
+h2,
+h3,
+code {
+  font-family: "Montserrat Variable", Helvetica, sans-serif;
+}
+
+img,
+video {
+  @apply drop-shadow;
+  transition: filter 0.3s ease-out;
+}
+
+#root {
+  @apply grid h-full grid-cols-1 place-items-center;
+}
+
+/** utilities */
+@utility center {
+  &:has(:only-child) {
+    @apply grid grid-cols-1 place-items-center;
+  }
+
+  &:not(:only-child) {
+    @apply flex flex-col items-center justify-center;
+  }
+}
+
+@utility stack-x {
+  @apply flex;
+}
+
+@utility stack-y {
+  @apply flex flex-col;
+}
+
+@utility text-muted {
+  @apply text-base-content/40 dark:text-base-content/20;
+}

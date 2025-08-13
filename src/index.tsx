@@ -43,10 +43,7 @@ function Root() {
         <Image
           alt="screenshot"
           className="h-auto w-full shadow-lg"
-          src={
-            AppInfo.homepage +
-            "/.github/blob/main/assets/screenshot.png?raw=true"
-          }
+          src={AppInfo.homepage + "/.github/blob/main/assets/demo.gif?raw=true"}
         />
       </section>
       <section className="prose flex flex-col justify-center">

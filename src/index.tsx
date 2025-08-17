@@ -12,29 +12,25 @@ import AppInfo from "package.json";
 import { Image } from "@app/components";
 
 /** @constant */
-const MILESTONE_ID = 1;
-
-/** @constant */
 const SHIELD_CONFIG_DOWNLOAD = new URLSearchParams({
-  style: "for-the-badge",
-  logo: "github",
-  label: "Download",
-  sort: "semver",
   display_name: "tag",
+  label: "Download",
+  logo: "github",
+  sort: "semver",
+  style: "for-the-badge",
 });
 
 /** @constant */
 const SHIELD_CONFIG_ROADMAP = new URLSearchParams({
-  style: "for-the-badge",
   logo: "rocket",
   logoColor: "white",
-  label: "View the Roadmap",
+  style: "for-the-badge",
 });
 
 /** @constant */
 const SHIELD_CONFIG_VIEW = new URLSearchParams({
-  style: "for-the-badge",
   logo: "github",
+  style: "for-the-badge",
 });
 
 /**
@@ -90,7 +86,7 @@ function Root() {
           >
             <img
               alt="view the roadmap"
-              src={`https://img.shields.io/github/milestones/progress-percent/${appName}/application/${MILESTONE_ID}?${SHIELD_CONFIG_ROADMAP}`}
+              src={`https://img.shields.io/badge/view_the-roadmap-blue?${SHIELD_CONFIG_ROADMAP}`}
               className="shadow-lg"
             />
           </a>

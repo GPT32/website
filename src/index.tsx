@@ -12,17 +12,29 @@ import AppInfo from "package.json";
 import { Image } from "@app/components";
 
 /** @constant */
+const MILESTONE_ID = 1;
+
+/** @constant */
 const SHIELD_CONFIG_DOWNLOAD = new URLSearchParams({
-  label: "Windows",
-  logo: "mingww64",
-  sort: "semver",
   style: "for-the-badge",
+  logo: "github",
+  label: "Download",
+  sort: "semver",
+  display_name: "tag",
+});
+
+/** @constant */
+const SHIELD_CONFIG_ROADMAP = new URLSearchParams({
+  style: "for-the-badge",
+  logo: "rocket",
+  logoColor: "white",
+  label: "View the Roadmap",
 });
 
 /** @constant */
 const SHIELD_CONFIG_VIEW = new URLSearchParams({
-  logo: "github",
   style: "for-the-badge",
+  logo: "github",
 });
 
 /**
@@ -56,7 +68,8 @@ function Root() {
           >
             <img
               alt="download"
-              src={`https://img.shields.io/github/downloads/${appName}/application/latest/${fileName}?${SHIELD_CONFIG_DOWNLOAD}`}
+              src={`https://img.shields.io/github/v/release/${appName}/application?${SHIELD_CONFIG_DOWNLOAD}`}
+              className="shadow-lg"
             />
           </a>
           <a
@@ -65,19 +78,23 @@ function Root() {
             target="_blank"
           >
             <img
-              alt="view on github"
+              alt="view the source code"
               src={`https://img.shields.io/badge/view_on-github-black?${SHIELD_CONFIG_VIEW}`}
+              className="shadow-lg"
             />
           </a>
-        </article>
-        <p>
           <a
+            title="View the roadmap"
             href={`${AppInfo.homepage}/application/milestones`}
             target="_blank"
           >
-            🚀 View the roadmap!
+            <img
+              alt="view the roadmap"
+              src={`https://img.shields.io/github/milestones/progress-percent/${appName}/application/${MILESTONE_ID}?${SHIELD_CONFIG_ROADMAP}`}
+              className="shadow-lg"
+            />
           </a>
-        </p>
+        </article>
       </section>
     </main>
   );

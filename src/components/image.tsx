@@ -42,6 +42,6 @@ export default function (props: Props) {
 
   // render the component
   return (
-    <img {...rest} src={uri} className={cx(className, loading && "blur-xl")} />
+    <img {...rest} src={uri} className={cx(className, loading && "blur-md")} />
   );
 }

@@ -9,6 +9,7 @@ import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import AppInfo from "package.json";
+import { cx } from "@app/lib";
 import { Image } from "@app/components";
 
 /** @constant */
@@ -46,7 +47,9 @@ function Root() {
   const fileName = React.useMemo(() => appName + ".exe", []);
 
   return (
-    <main className="grid w-full grid-cols-1 gap-5 md:w-2/3 lg:grid-cols-2">
+    <main
+      className={cx("grid w-full grid-cols-1 gap-8", "sm:w-2/3 xl:grid-cols-2")}
+    >
       <section>
         <Image
           alt="screenshot"
@@ -54,10 +57,21 @@ function Root() {
           src={AppInfo.homepage + "/.github/blob/main/assets/demo.gif?raw=true"}
         />
       </section>
-      <section className="prose flex flex-col justify-center">
+      <section
+        className={cx(
+          "prose flex max-w-none flex-col items-center justify-center",
+          "xl:items-start",
+        )}
+      >
         <h1>{appName}</h1>
         <p>{AppInfo.description}</p>
-        <article className="gap-4 md:flex">
+        <article
+          className={cx(
+            "flex w-full flex-col items-center justify-center gap-4",
+            "sm:flex-row xl:justify-start",
+            "[&_img]:my-0 [&_img]:shadow-lg",
+          )}
+        >
           <a
             title="Download the latest release"
             href={`${AppInfo.homepage}/application/releases/latest/download/${fileName}`}
@@ -65,7 +79,6 @@ function Root() {
             <img
               alt="download"
               src={`https://img.shields.io/github/v/release/${appName}/application?${SHIELD_CONFIG_DOWNLOAD}`}
-              className="shadow-lg"
             />
           </a>
           <a
@@ -76,7 +89,6 @@ function Root() {
             <img
               alt="view the source code"
               src={`https://img.shields.io/badge/view_on-github-black?${SHIELD_CONFIG_VIEW}`}
-              className="shadow-lg"
             />
           </a>
           <a
@@ -87,7 +99,6 @@ function Root() {
             <img
               alt="view the roadmap"
               src={`https://img.shields.io/badge/view_the-roadmap-blue?${SHIELD_CONFIG_ROADMAP}`}
-              className="shadow-lg"
             />
           </a>
         </article>
